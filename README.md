@@ -18,6 +18,7 @@ cd path/to/workspace
 git clone https://github.com/binroon/osdu.git
 ```
 - deploy with configmap
+
 Update config/appinsightsconfig.js file with your Azure Application Insights Instrumentation Key
 ```
 kubectl create configmap statsd-config --from-file=config
