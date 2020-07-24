@@ -17,9 +17,8 @@ az aks get-credentials --resource-group rg_name --name cluster_name
 cd path/to/workspace
 git clone https://github.com/binroon/osdu.git
 ```
+- Update config/appinsightsconfig.js file with your Azure Application Insights Instrumentation Key
 - deploy with configmap
-
-Update config/appinsightsconfig.js file with your Azure Application Insights Instrumentation Key
 ```
 kubectl create configmap statsd-config --from-file=config
 kubectl apply -f statsd-test.yaml
