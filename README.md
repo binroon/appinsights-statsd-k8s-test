@@ -14,7 +14,7 @@ az aks get-credentials --resource-group rg_name --name cluster_name
 ```
 - git clone this repo to your local folder
 ```
-git clone https://github.com/binroon/osdu.git
+git clone https://github.com/binroon/appinsights-statsd-k8s-test.git
 cd path/to/workspace
 ```
 - Update config/appinsightsconfig.js file with your Azure Application Insights Instrumentation Key
