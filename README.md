@@ -18,10 +18,10 @@ git clone https://github.com/binroon/appinsights-statsd-k8s-test.git
 cd path/to/workspace
 ```
 - Update config/appinsightsconfig.js file with your Azure Application Insights Instrumentation Key
-- deploy with configmap
+- deploy configmap and statsd
 ```
-kubectl create configmap statsd-config --from-file=config
-kubectl apply -f statsd-test.yaml
+kubectl apply -f appinsights-statsd-config.yaml
+kubectl apply -f statsd-test-env-configMap.yaml
 ```
 
 # Deployment Result
@@ -37,7 +37,7 @@ kubectl get deployments
 ```
 kubectl exec -it appinsights-statsd-test-client sh
 ```
-- send data
+- send data - Note: replace "my_prefix" with prefix you specified in configmap
 ```
 echo "my_prefix.t1:4.5|ms" | nc -u -w0 <statsd-server-ip> 8125 &
 echo "my_prefix.t2:4.5|ms" | nc -u -w0 <statsd-server-ip> 8125 &
@@ -52,5 +52,5 @@ customMetrics
 ```
 # delete resource
 ```
-kubectl delete -f statsd-test.yaml
+kubectl delete -f statsd-test-env-configMap.yaml
 ```
